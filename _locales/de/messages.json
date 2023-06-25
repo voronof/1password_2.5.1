@@ -1,0 +1,17 @@
+{
+   "extBetaName": {
+      "message": "1Password Beta – Passwort-Manager"
+   },
+   "extDescription": {
+      "message": "Die beste Art 1Password im Browser zu erleben. Ganz einfach auf Websites einloggen, Passwörter generieren, und sensible Daten speichern."
+   },
+   "extDescriptionSafari": {
+      "message": "Nutzen Sie 1Password in Safari. Speichern Sie Ihre sensiblen Anmeldedaten und generieren Sie sichere Passwörter."
+   },
+   "extName": {
+      "message": "1Password – Passwort-Manager"
+   },
+   "extNameSafari": {
+      "message": "1Password für Safari"
+   }
+}

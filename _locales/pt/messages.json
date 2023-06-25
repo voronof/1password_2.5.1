@@ -1,0 +1,17 @@
+{
+   "extBetaName": {
+      "message": "1Password Beta – Gerenciador de senhas"
+   },
+   "extDescription": {
+      "message": "A melhor maneira de experimentar o 1Password no seu navegador. Acesse sites, gere senhas e armazene informações com segurança e facilidade."
+   },
+   "extDescriptionSafari": {
+      "message": "Tenha o poder do 1Password no Safari. Acesse sites, gerencie senhas e armazene dados sigilosos com facilidade."
+   },
+   "extName": {
+      "message": "1Password – Gerenciador de senhas"
+   },
+   "extNameSafari": {
+      "message": "1Password para Safari"
+   }
+}

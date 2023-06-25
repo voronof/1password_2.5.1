@@ -1,0 +1,1200 @@
+/* Colors */
+/* Always use dark variants of colors for text to get an accessible level of color contrast */
+/* Weird colors to investigate -Dan */
+/* Breakpoints */
+/* @group Eric Meyer Reset */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  border: 0;
+  cursor: default;
+  font: inherit;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote::before,
+blockquote::after,
+q::before,
+q::after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* @end */
+/* @group Custom Resets */
+* {
+  box-sizing: border-box;
+}
+*:not(input) {
+  -webkit-user-select: none;
+  user-select: none;
+}
+*:focus {
+  outline: none;
+}
+
+a {
+  cursor: pointer;
+}
+a * {
+  cursor: pointer;
+}
+
+input,
+button,
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  outline: none;
+  padding: 0;
+}
+input:focus,
+button:focus,
+select:focus {
+  border: 0;
+  outline: 0;
+}
+input::-moz-focus-inner,
+button::-moz-focus-inner,
+select::-moz-focus-inner {
+  border: 0;
+  outline: 0;
+}
+input::-moz-focus-outer,
+button::-moz-focus-outer,
+select::-moz-focus-outer {
+  border: 0;
+  outline: 0;
+}
+
+strong {
+  font-weight: bold;
+}
+
+img {
+  -webkit-touch-callout: none;
+}
+
+/* @end */
+@font-face {
+  font-display: swap;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 100 900;
+  src: url("fonts/Inter-roman.var.woff2") format("woff2");
+}
+@font-face {
+  font-display: swap;
+  font-family: Inter;
+  font-style: italic;
+  font-weight: 100 900;
+  src: url("fonts/Inter-italic.var.woff2") format("woff2");
+}
+/* @group Text Styles */
+html,
+body,
+input,
+button,
+select {
+  color: var(--text-color-primary);
+  font: 16px Inter, sans-serif;
+  font-variant-ligatures: none;
+}
+
+h1 {
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.2em;
+}
+
+h2 {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.2em;
+}
+
+h3 {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.2em;
+}
+
+h4 {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.2em;
+}
+
+.secondary {
+  color: var(--color-shading-heavy);
+  font-size: 13px;
+  line-height: 1.2em;
+}
+
+a,
+a:visited {
+  color: var(--color-readable-blue);
+}
+a:focus,
+a:visited:focus {
+  background-color: var(--color-tints-blue);
+  border-radius: 3px;
+  box-shadow: 0 0 0 2px var(--color-specifics-focus-ring);
+  color: var(--text-color-primary);
+}
+
+.password {
+  color: var(--text-color-primary);
+  font-feature-settings: "ss01", "ss02";
+}
+.password .digits {
+  color: var(--color-readable-blue);
+}
+.password .symbols {
+  color: var(--color-readable-red);
+}
+
+/* Sometimes screen readers need additional text elements. For instance they don't always pause between block elements (like when inside a listbox) so you want an invisible period. Or you need an alert element that should be read to them but doesn't need to be visible because it's shown in another way to sighted people. */
+.screenReaderOnly {
+  height: 0;
+  left: -1000px;
+  opacity: 0;
+  position: absolute;
+  top: -1000px;
+  width: 0;
+}
+
+/* @end */
+#lock_screen {
+  display: block;
+  height: 100%;
+  position: fixed;
+  width: 100%;
+  z-index: 2147483647;
+  /* @group Transitions */
+  /* @end */
+}
+#lock_screen #fade {
+  background-color: #b3b3b3;
+  display: block;
+  height: 100%;
+  opacity: 0.75;
+  position: fixed;
+  width: 100%;
+  z-index: -3;
+}
+#lock_screen .door {
+  background-color: #f7f7f7;
+  display: block;
+  position: absolute;
+  width: 100%;
+}
+[data-theme=dark] #lock_screen .door {
+  background-color: #333333;
+}
+#lock_screen .door_bevel {
+  background-color: rgba(0, 0, 0, 0.01);
+  height: 30px;
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+}
+[data-theme=dark] #lock_screen .door_bevel {
+  background-color: rgba(255, 255, 255, 0.01);
+}
+#lock_screen .door_bevel .bevel_ripples {
+  display: block;
+  height: 62px;
+  left: 40px;
+  margin: auto;
+  width: 220px;
+}
+[data-theme=dark] #lock_screen .door_bevel .bevel_ripples {
+  filter: invert(1);
+}
+#lock_screen .door_cutout-mask {
+  height: 52px;
+  left: calc(50% - 52px);
+  overflow: hidden;
+  position: absolute;
+  width: 104px;
+}
+#lock_screen .door_cutout-mask .door_cutout {
+  background-color: #ededed;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.15);
+  content: "";
+  display: block;
+  height: 104px;
+  width: 100%;
+}
+#lock_screen .door_bumper {
+  background-color: #ededed;
+  height: 15px;
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+}
+[data-theme=dark] #lock_screen .door_bumper {
+  background-color: #333333;
+}
+#lock_screen #door-top {
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
+  height: calc(50% - 58px);
+  top: 0;
+  transition: top 0.4s ease 0s;
+}
+#lock_screen #door-top .door_bevel {
+  bottom: 0;
+  box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.75), inset 0 2px 0 rgba(0, 0, 0, 0.07), inset 0 -1px 0 rgba(255, 255, 255, 0.5);
+}
+[data-theme=dark] #lock_screen #door-top .door_bevel {
+  box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.6), inset 0 2px 0 rgba(255, 255, 255, 0.1), inset 0 -1px 0 #333333;
+}
+#lock_screen #door-top .door_cutout-mask {
+  bottom: -1px;
+}
+#lock_screen #door-top #lock {
+  bottom: -57px;
+  /* half of height + 1 for divider */
+  display: block;
+  height: 112px;
+  left: calc(50% - 56px);
+  position: absolute;
+  width: 112px;
+  z-index: 1;
+}
+#lock_screen #door-top #lock::before, #lock_screen #door-top #lock::after {
+  border-radius: 50%;
+  content: "";
+  display: block;
+  height: 92px;
+  left: 10px;
+  position: absolute;
+  top: 10px;
+  width: 92px;
+  z-index: -1;
+}
+#lock_screen #door-top #lock::before {
+  background: linear-gradient(to bottom, #0d80f2 0%, #0db9f2 100%);
+}
+#lock_screen #door-top #lock::after {
+  opacity: 0;
+  transition: opacity 1s ease, background 0s 1s;
+}
+#lock_screen #door-top .door_bumper {
+  bottom: -15px;
+  z-index: -1;
+}
+#lock_screen #door-top .door_bumper::before {
+  background-color: #ededed;
+  border-radius: 50%;
+  content: "";
+  display: block;
+  height: 130px;
+  left: calc(50% - 65px);
+  position: absolute;
+  top: -64px;
+  width: 130px;
+}
+[data-theme=dark] #lock_screen #door-top .door_bumper::before {
+  background-color: rgba(0, 0, 0, 0.07);
+}
+#lock_screen #door-top .door_shadow {
+  background-color: rgba(0, 0, 0, 0.15);
+  bottom: -16px;
+  height: 16px;
+  position: absolute;
+  width: 100%;
+  z-index: -2;
+}
+[data-theme=dark] #lock_screen #door-top .door_shadow {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+#lock_screen #door-top .door_shadow::before {
+  background-color: rgba(0, 0, 0, 0.15);
+  border-radius: 50%;
+  content: "";
+  display: block;
+  height: 132px;
+  left: calc(50% - 66px);
+  position: absolute;
+  top: -65px;
+  width: 132px;
+}
+[data-theme=dark] #lock_screen #door-top .door_shadow::before {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+#lock_screen #door-bottom {
+  bottom: 0;
+  box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.15);
+  height: calc(50% + 56px);
+  transition: bottom 0.4s ease 0s;
+}
+#lock_screen #door-bottom .door_bevel {
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.75), inset 0 -2px 0 rgba(0, 0, 0, 0.07), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  top: 0;
+}
+[data-theme=dark] #lock_screen #door-bottom .door_bevel {
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.6), inset 0 -2px 0 rgba(255, 255, 255, 0.1), inset 0 1px 0 #333333;
+}
+#lock_screen #door-bottom .door_bevel .bevel_ripples {
+  margin-top: -32px;
+}
+#lock_screen #door-bottom .door_cutout-mask {
+  top: -1px;
+}
+#lock_screen #door-bottom .door_cutout-mask .door_cutout {
+  margin-top: -50%;
+}
+#lock_screen #door-bottom .door_bumper {
+  box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.15);
+  top: -15px;
+  z-index: -2;
+}
+#lock_screen form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  left: calc(50% - 150px);
+  margin: 0 auto;
+  position: absolute;
+  text-align: center;
+  top: 90px;
+  transition: width 0.5s ease, left 0.5s ease;
+  width: 300px;
+  z-index: 1;
+}
+#lock_screen form #accountPassword {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+#lock_screen form #accountPassword #accountPassword-input {
+  background-clip: padding-box;
+  background-color: var(--color-grayscale-white);
+  border-radius: 5px;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.15);
+  height: 42px;
+  padding: 0 63px 0 15px;
+  width: 100%;
+}
+#lock_screen form #accountPassword #accountPassword-input::placeholder {
+  transition: color 0.5s ease;
+}
+[data-theme=dark] #lock_screen form #accountPassword #accountPassword-input {
+  background-color: var(--color-grayscale-black);
+}
+#lock_screen form #accountPassword #accountPassword-input:focus {
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.15), inset 0 0 0 1px rgba(0, 102, 204, 0.3), 0 0 0 2px rgba(0, 102, 204, 0.3);
+}
+#lock_screen form #accountPassword #unlockButton {
+  align-items: center;
+  display: flex;
+  height: 32px;
+  justify-content: center;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  width: 44px;
+}
+#lock_screen form #accountPassword #unlockButton input {
+  border-radius: 3px;
+  height: 32px;
+  position: absolute;
+  transition: background-color 0.15s ease, box-shadow 0.15s ease, opacity 0.4s ease 0.1s;
+  width: 44px;
+}
+#lock_screen form #accountPassword #unlockButton::after {
+  content: url(images/button_icon-unlock.svg);
+  display: block;
+  height: 20px;
+  pointer-events: none;
+  position: relative;
+  width: 20px;
+}
+#lock_screen form #accounts {
+  background-color: rgba(0, 0, 0, 0.03);
+  border-radius: 0 0 5px 5px;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.07);
+  display: flex;
+  flex-grow: 0;
+  height: 39px;
+  margin-top: -5px;
+  max-width: 100%;
+  overflow: hidden;
+  padding: 10px 2px 5px 5px;
+}
+#lock_screen form #accounts input[type=radio] {
+  position: absolute;
+}
+#lock_screen form #accounts .account label {
+  align-items: center;
+  display: flex;
+  font-weight: 600;
+  margin-right: 3px;
+  opacity: 0.5;
+}
+#lock_screen form #accounts .account label .itemIcon-small {
+  flex-shrink: 0;
+}
+#lock_screen form #accounts .account label .itemIcon-small::before {
+  content: "";
+  display: block;
+  height: 100%;
+  opacity: 0;
+  position: absolute;
+  transition: opacity 0.25s ease-in-out 0s;
+  width: 100%;
+}
+#lock_screen form #accounts .account label .accountName {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-left: 0;
+  opacity: 0;
+  padding-right: 0;
+  text-align: left;
+  transition: width 0.25s ease-in-out 0s, max-width 0.25s ease-in-out 0s, opacity 0.25s ease-in-out 0s;
+}
+#lock_screen form #accounts .account label:hover {
+  opacity: 1;
+}
+#lock_screen form #accounts .account:not(.unlocked) input[type=radio]:checked + label {
+  max-width: 140px;
+  opacity: 1;
+}
+#lock_screen form #accounts .account:not(.unlocked) input[type=radio]:checked + label .accountName {
+  margin-left: 6px;
+  max-width: 200px;
+  opacity: 1;
+  padding-right: 3px;
+}
+#lock_screen form #accounts .account input[type=radio]:focus + label {
+  opacity: 1;
+}
+#lock_screen form #accounts .account input[type=radio]:focus + label .itemIcon-small {
+  box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.3);
+}
+#lock_screen form #accounts .account input[type=radio]:focus + label .itemIcon-small::after {
+  box-shadow: inset 0 0 0 1px rgba(0, 102, 204, 0.3), inset 0 0 0 1px rgba(0, 0, 0, 0.15);
+}
+#lock_screen form #accounts .account.unlocked {
+  transform: translateY(-30px);
+  transition: transform 0.25s ease-in 0.5s;
+}
+#lock_screen form #accounts .account.unlocked label {
+  margin-right: -24px;
+  opacity: 1;
+  transition: opacity 0.25s ease-in-out 0s, margin-right 0.25s ease-in-out 0.75s;
+}
+#lock_screen form #accounts .account.unlocked label .itemIcon-small::before {
+  background-color: #50b347;
+  content: url(images/checkmark-small-white.svg);
+  opacity: 1;
+  padding-top: 3px;
+}
+#lock_screen form #accounts .account.working:not(.unlocked) label {
+  opacity: 1;
+}
+@keyframes spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+#lock_screen form #accounts .account.working:not(.unlocked) label .itemIcon-small::before {
+  animation: spin 0.6s infinite steps(8);
+  background-color: rgba(0, 0, 0, 0.4);
+  content: url(images/spinner-small-white.svg);
+  height: 16px;
+  margin-left: -5px;
+  margin-top: -5px;
+  opacity: 1;
+  padding: 8px;
+  width: 16px;
+}
+#lock_screen form #accounts.allUnlocked {
+  height: 0;
+  padding: 0 2px 0 5px;
+  transition: height 0.25s ease-in-out 0.5s, padding 0.25s ease-in-out 0.5s;
+}
+#lock_screen form #messages {
+  color: var(--text-color-primary);
+  margin-top: 16px;
+  position: relative;
+  width: 100%;
+}
+#lock_screen form #messages .message {
+  opacity: 1;
+  position: absolute;
+  text-align: center;
+  transform: translateY(10px);
+  transition: opacity 0.15s ease 0s, transform 0.15s ease 0s;
+  width: 100%;
+}
+#lock_screen form #messages .message p {
+  margin-top: 4px;
+}
+#lock_screen form #messages .message button {
+  color: #1173d4;
+  cursor: pointer;
+  font: inherit;
+}
+#lock_screen form #messages .message.transition-enter {
+  opacity: 0;
+}
+#lock_screen form #messages .message.transition-enter-active, #lock_screen form #messages .message.transition-enter-done, #lock_screen form #messages .message.transition-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+#lock_screen form #messages .message.transition-exit-active, #lock_screen form #messages .message.transition-exit-done {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+#lock_screen.stepRequired #stepRequired {
+  bottom: 100px;
+  justify-content: center;
+  left: calc(50% - 160px);
+  position: absolute;
+  text-align: center;
+  top: 74px;
+  width: 320px;
+}
+#lock_screen.stepRequired #stepRequired p {
+  margin-bottom: 8px;
+}
+#lock_screen.stepRequired #stepRequired button.button {
+  display: inline-block;
+  margin-top: 8px;
+}
+#lock_screen.stepRequired #stepRequired p.secondary {
+  bottom: 20px;
+  left: calc(50% - 160px);
+  position: fixed;
+  width: 320px;
+}
+#lock_screen.stepRequired #stepRequired button {
+  margin-top: 32px;
+  transition: opacity 0.25s ease;
+}
+#lock_screen.stepRequired #stepRequired button.unlock-with-account-password {
+  opacity: 0;
+}
+#lock_screen.stepRequired #stepRequired .spinner {
+  margin-bottom: -3px;
+  margin-right: 8px;
+}
+#lock_screen.stepRequired #stepRequired.transition-enter-active button.unlock-with-account-password {
+  opacity: 1;
+  transition-delay: 2s;
+}
+#lock_screen.stepRequired #stepRequired.transition-enter-done button.unlock-with-account-password {
+  opacity: 1;
+}
+#lock_screen.stepRequired #stepRequired.transition-exit-active {
+  opacity: 0;
+}
+#lock_screen.stepRequired #stepRequired.transition-exit-active button {
+  opacity: 0;
+}
+#lock_screen.error #door-top #lock::after {
+  background: linear-gradient(to bottom, #c04830 0%, #e6735c 100%);
+  opacity: 1;
+  transition: opacity 1s ease, background 0s 1s ease;
+}
+#lock_screen.error #accountPassword #unlockButton input {
+  background-color: #c04830;
+}
+#lock_screen.working #accountPassword #unlockButton::after {
+  animation: spin 0.6s infinite steps(8);
+  content: url(images/spinner-small-white.svg);
+  height: 16px;
+  width: 16px;
+}
+@keyframes spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+#lock_screen #learnMore {
+  cursor: pointer;
+}
+
+#lock_screen #unlockViaDesktopContainer {
+  position: absolute;
+  top: 90px;
+  width: 100%;
+}
+#lock_screen #unlockViaDesktopContainer .loading {
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+  width: 100%;
+}
+#lock_screen #unlockViaDesktopContainer .loading .loadingSpinner {
+  margin-right: 10px;
+}
+#lock_screen #unlockViaDesktopContainer .loading div {
+  text-align: center;
+}
+#lock_screen #unlockViaDesktopContainer .loading div p {
+  margin: 1em;
+}
+
+#itemListPane {
+  background-color: var(--color-grayscale-white);
+  color: var(--text-color-primary);
+  position: relative;
+}
+[data-theme=dark] #itemListPane {
+  background-color: var(--color-grayscale-black);
+}
+#itemListPane header {
+  background-color: var(--color-shading-extra-faint);
+  box-shadow: inset 0 -1px 0 0 var(--border-faint), inset 0 1px 0 0 var(--border-faint);
+  height: 32px;
+  position: absolute;
+  width: 100%;
+}
+#itemListPane header.placeholder img {
+  margin-top: -1px;
+}
+#itemListPane header #itemListSelector {
+  width: 100%;
+  z-index: 100000;
+}
+#itemListPane header #itemListSelector:not(.expanded) {
+  box-shadow: inset 0 -1px 0 0 var(--border-faint), inset 0 1px 0 0 var(--border-faint), inset -1px 0 0 0 var(--border-faint);
+}
+#itemListPane header #itemListSelector:not(.expanded) li {
+  padding: 0 32px 0 20px;
+}
+#itemListPane header #itemListSelector:not(.expanded) li::before {
+  display: none;
+}
+#itemListPane header #itemListSelector:not(.expanded) li::after {
+  right: 17px;
+}
+#itemListPane header #itemListSelector:not(.expanded):focus {
+  box-shadow: inset 0 -1px 0 0 var(--border-faint), inset 0 1px 0 0 var(--border-faint), inset -1px 0 0 0 var(--border-faint), inset 0 0 0 1px rgba(0, 102, 204, 0.3), 0 0 0 3px rgba(0, 102, 204, 0.3);
+}
+#itemListPane header #itemListSelector:not(.expanded):active {
+  background-color: #1173d4;
+  color: white;
+}
+#itemListPane header #itemListSelector.scrolling {
+  border-radius: 8px 8px 0 0;
+}
+#itemListPane header #itemListSelector.expanded {
+  border-radius: 8px;
+}
+#itemListPane header #itemListSelector.expanded.allItems {
+  max-height: 366px;
+  transform: translateY(-8px);
+}
+#itemListPane header #itemListSelector.expanded.suggestions {
+  max-height: 398px;
+  transform: translateY(-40px);
+}
+#itemListPane header #itemListSelector.expanded.other {
+  max-height: min(418px, 100vh - 16px);
+  transform: translateY(-60px);
+}
+#itemListPane header #itemListSelector.expanded li img {
+  margin-right: 20px;
+}
+#itemListPane header #itemListSelector li::after {
+  transition: none;
+}
+#itemListPane header #clearSearch {
+  line-height: 32px;
+  text-align: center;
+  width: 100%;
+}
+#itemListPane .itemListScrolling {
+  color: var(--text-color-primary);
+  position: relative;
+  top: 32px;
+}
+[data-theme=dark] #itemListPane .itemListScrolling {
+  background-color: var(--color-grayscale-black);
+}
+#itemListPane .itemListScrolling ul li.listItem {
+  align-items: flex-start;
+  border-radius: 8px;
+  display: flex;
+  height: 50px;
+  overflow: hidden;
+  padding-top: 1px;
+  position: relative;
+}
+#itemListPane .itemListScrolling ul li.listItem::after {
+  content: "";
+  display: block;
+  height: 1px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 0;
+}
+#itemListPane .itemListScrolling ul li.listItem:first-child::after {
+  content: none;
+}
+#itemListPane .itemListScrolling ul li.listItem.favorite div[class*=itemIcon-]::before {
+  background: url(images/favorites-mini.svg) no-repeat;
+  background-size: 100%;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 12px;
+  position: absolute;
+  right: -4px;
+  width: 12px;
+  z-index: 1;
+}
+#itemListPane .itemListScrolling ul li.listItem .itemIcon-medium {
+  display: block;
+  flex-shrink: 0;
+  margin: 9px 8px 8px 20px;
+  position: relative;
+}
+#itemListPane .itemListScrolling ul li.listItem .itemIcon-medium.placeholder {
+  background-color: rgba(0, 0, 0, 0.07);
+  border-radius: 6px;
+}
+#itemListPane .itemListScrolling ul li.listItem .itemIcon-medium.custom {
+  padding: 1px;
+}
+#itemListPane .itemListScrolling ul li.listItem .itemIcon-medium.custom img {
+  background-color: white;
+  border-radius: 6px;
+  height: 30px;
+  width: 30px;
+}
+#itemListPane .itemListScrolling ul li.listItem .itemIcon-medium.custom::after {
+  border-radius: 6px;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.4);
+  content: "";
+  display: block;
+  height: 30px;
+  left: 1px;
+  position: absolute;
+  top: 1px;
+  width: 30px;
+}
+#itemListPane .itemListScrolling ul li.listItem .itemIcon-medium img {
+  height: 100%;
+  width: 100%;
+}
+#itemListPane .itemListScrolling ul li.listItem .details {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  align-items: center;
+  display: flex;
+  flex: 1 1 auto;
+  flex-wrap: wrap;
+  margin: 8px 0;
+  margin-right: 10px;
+  max-height: 34px;
+}
+#itemListPane .itemListScrolling ul li.listItem .details span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex-shrink: 0;
+  height: 18px;
+  width: 100%;
+}
+#itemListPane .itemListScrolling ul li.listItem .details .secondary {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex-shrink: 0;
+  width: 100%;
+}
+#itemListPane .itemListScrolling ul li.listItem button {
+  background-color: white;
+  border: 10px solid white;
+  border-radius: 16px;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.15), 0 0 20px 10px white;
+  color: var(--color-shading-heavy);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: bold;
+  height: 50px;
+  opacity: 0;
+  padding: 8px 10px 10px;
+  position: absolute;
+  right: 0;
+}
+[data-theme=dark] #itemListPane .itemListScrolling ul li.listItem button {
+  background-color: var(--color-grayscale-black);
+  border: 10px solid var(--color-grayscale-black);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1), 0 0 20px 10px var(--color-grayscale-black);
+}
+#itemListPane .itemListScrolling ul li.listItem button:hover {
+  background-color: white;
+}
+[data-theme=dark] #itemListPane .itemListScrolling ul li.listItem button:hover {
+  background-color: var(--color-grayscale-black);
+}
+#itemListPane .itemListScrolling ul li.listItem:hover button {
+  opacity: 1;
+}
+#itemListPane .itemListScrolling ul li.listItem.focus {
+  background-color: #1173d4 !important;
+  color: white;
+}
+#itemListPane .itemListScrolling ul li.listItem.focus .secondary {
+  color: var(--color-shading-on-dark-heavy);
+}
+#itemListPane .itemListScrolling ul li.listItem.focus button {
+  background-color: #1173d4;
+  border: 10px solid #1173d4;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.5), 0 0 20px 10px #1173d4;
+  color: white;
+}
+#itemListPane .itemListScrolling ul li.listItem.focus button:hover {
+  background-color: #1173d4;
+}
+#itemListPane .itemListScrolling ul li.listItem.active {
+  background-color: #d9d9d9;
+}
+[data-theme=dark] #itemListPane .itemListScrolling ul li.listItem.active {
+  background-color: #666666;
+}
+#itemListPane .itemListScrolling ul li.listItem.active button {
+  background-color: #ededed;
+  border: 10px solid #d9d9d9;
+  box-shadow: inset 0 0 0 1px #b3b3b3, 0 0 20px 10px #d9d9d9;
+}
+[data-theme=dark] #itemListPane .itemListScrolling ul li.listItem.active button {
+  background-color: #666666;
+  border: 10px solid #666666;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.5), 0 0 20px 10px #666666;
+}
+#itemListPane .itemListScrolling#resultsSection h4 {
+  height: 0;
+  opacity: 0;
+}
+#itemListPane .itemListScrolling.newItemListHeaderOffset {
+  top: 0;
+}
+#itemListPane #searchResults {
+  padding: 0 20px 20px;
+  position: relative;
+  top: 48px;
+}
+#itemListPane #searchResults p {
+  color: var(--text-color-primary);
+  text-align: center;
+}
+#itemListPane #searchResults hr {
+  background-color: var(--color-grayscale-black);
+  border-style: none;
+  height: 1px;
+  margin: 20px;
+}
+[data-theme=dark] #itemListPane #searchResults hr {
+  background-color: var(--color-grayscale-white);
+}
+#itemListPane #searchResults button {
+  width: 100%;
+}
+
+html.locked,
+html.locked body {
+  background-color: #f7f7f7;
+}
+@media (prefers-color-scheme: dark) {
+  html.locked,
+html.locked body {
+    background-color: #333333;
+  }
+}
+
+/**
+  This is used to counteract an issue with Mac Chrome where text fields in the
+  bottom 50% of the pop-up don't react correctly to user input.
+
+  @see https://bugs.chromium.org/p/chromium/issues/detail?id=971701
+*/
+.force_the_repaint {
+  animation: redraw 1s linear infinite;
+}
+
+:root {
+  color-scheme: light dark;
+}
+
+@keyframes redraw {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.99;
+  }
+}
+body {
+  background-color: var(--color-grayscale-white);
+  height: 450px;
+  overflow: hidden;
+  width: 600px;
+}
+
+body[data-theme=dark] {
+  background-color: var(--color-grayscale-black);
+}
+
+#mainUI {
+  display: grid;
+  grid-row-gap: 12px;
+  grid-template-columns: 250px calc(100vw - 250px);
+  grid-template-rows: 44px calc(100vh - 68px);
+  height: 100%;
+  left: 0;
+  opacity: 1;
+  padding-top: 12px;
+  position: fixed;
+  transition: transform 0.25s ease-in-out;
+  width: 100%;
+}
+#mainUI.transition-enter-active, #mainUI.transition-enter-done, #mainUI.transition-exit {
+  transform: translateX(-240px);
+}
+#mainUI.transition-enter-active header input::placeholder, #mainUI.transition-enter-done header input::placeholder, #mainUI.transition-exit header input::placeholder {
+  color: transparent;
+}
+#mainUI.transition-enter-active header .floating, #mainUI.transition-enter-done header .floating, #mainUI.transition-exit header .floating {
+  margin-right: -40px;
+}
+#mainUI.transition-exit-active {
+  transform: translateX(0);
+}
+#mainUI.transition-exit-active header input::placeholder {
+  color: auto;
+}
+#mainUI.transition-exit-active header .floating {
+  margin-right: 0;
+}
+#mainUI #popup-header {
+  display: flex;
+  grid-column: 1/-1;
+  grid-row: 1/1;
+}
+#mainUI #itemListPane {
+  border-right: 1px solid var(--border-faint);
+  grid-column: 1/1;
+  grid-row: 2/-1;
+  max-height: 100%;
+}
+#mainUI.newItemDetails #itemDetails {
+  grid-column: 2/-1;
+  grid-row: 2/-1;
+}
+#mainUI.newHeader {
+  --header-height: 53px;
+  grid-row-gap: initial;
+  grid-template-rows: var(--header-height) calc(100vh - var(--header-height));
+  padding: initial;
+}
+[data-primary-input=touch] #mainUI.newHeader {
+  --header-height: 65px;
+}
+[data-viewport-size=small] #mainUI.newHeader {
+  grid-template-columns: 100vw;
+}
+
+.floating {
+  background-color: var(--color-shading-extra-faint);
+  box-shadow: var(--elevation-01);
+}
+
+.rounded {
+  border-radius: 22px;
+}
+
+.buttonIcon {
+  height: 18px;
+  width: 18px;
+}
+
+.link {
+  cursor: pointer;
+}
+
+.pointerBlocker {
+  background-color: var(--color-grayscale-almost-white);
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  pointer-events: auto;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 99999;
+}
+[data-theme=dark] .pointerBlocker {
+  background-color: var(--color-grayscale-almost-black);
+}
+
+.slideInMenu + .pointerBlocker.fade {
+  transition: opacity 0.25s ease-in-out;
+}
+
+.slideInMenu.transition-enter-active + .pointerBlocker.fade,
+.slideInMenu.transition-enter-done + .pointerBlocker.fade,
+.slideInMenu.widen-transition-enter-active + .pointerBlocker.fade,
+.slideInMenu.widen-transition-enter-done + .pointerBlocker.fade {
+  opacity: 0.6;
+}
+
+.slideInMenu.transition-exit + .pointerBlocker.fade {
+  opacity: 0;
+}
+
+.placeholder img {
+  animation: pulse 1s ease-in-out infinite alternate;
+}
+
+@keyframes pulse {
+  100% {
+    opacity: 0.75;
+  }
+}
+.spinner {
+  animation: spin 0.6s infinite steps(8);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+.loadingConfig {
+  animation: fadein 1.125s ease 1s forwards;
+  left: 50%;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
